@@ -23,6 +23,7 @@
 #import "AFJSONRequestOperation.h"
 #import "OSMVectorTileSource.h"
 #import "OSMRoadTileSource.h"
+#import "OSMRoadLabelTileSource.h"
 #import "OSMLandTileSource.h"
 #import "OSMWaterTileSource.h"
 #import "OSMBuildingTileSource.h"
@@ -96,8 +97,6 @@
         [mapViewC animateToPosition:MaplyCoordinateMakeWithDegrees(-122.4192, 37.7793) time:1.0];
     }
 
-    self.title = @"OpenStreetMap Vectors";
-    
     // For network paging layers, where we'll store temp files
     NSString *cacheDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)  objectAtIndex:0];
     NSString *jsonTileSpec = nil;
@@ -112,33 +111,36 @@
         [[NSFileManager defaultManager] createDirectoryAtPath:thisCacheDir withIntermediateDirectories:YES attributes:nil error:&error];        
     }
     
-    // If we're fetching one of the JSON tile specs, kick that off
-    if (jsonTileSpec)
+    if ([_settings[kOSMBaseLayer] boolValue])
     {
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:jsonTileSpec]];
-        [request setTimeoutInterval:15];
-        
-        AFJSONRequestOperation *operation =
-        [AFJSONRequestOperation JSONRequestOperationWithRequest:request
-                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
+        // If we're fetching one of the JSON tile specs, kick that off
+        if (jsonTileSpec)
         {
-            // Add a quad earth paging layer based on the tile spec we just fetched
-            MaplyQuadEarthWithRemoteTiles *layer = [[MaplyQuadEarthWithRemoteTiles alloc] initWithTilespec:JSON];
-            layer.handleEdges = false;
-            layer.cacheDir = thisCacheDir;
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:jsonTileSpec]];
+            [request setTimeoutInterval:15];
+            
+            AFJSONRequestOperation *operation =
+            [AFJSONRequestOperation JSONRequestOperationWithRequest:request
+                                            success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
+            {
+                // Add a quad earth paging layer based on the tile spec we just fetched
+                MaplyQuadEarthWithRemoteTiles *layer = [[MaplyQuadEarthWithRemoteTiles alloc] initWithTilespec:JSON];
+                layer.handleEdges = false;
+                layer.cacheDir = thisCacheDir;
+                [baseViewC addLayer:layer];
+            }
+                                                            failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON)
+            {
+                NSLog(@"Failed to reach JSON tile spec at: %@",jsonTileSpec);
+            }
+             ];
+            
+            [operation start];
+        } else {
+            // Let's load a specific base layer instead
+            MaplyQuadEarthWithRemoteTiles *layer = [[MaplyQuadEarthWithRemoteTiles alloc] initWithBaseURL:@"http://a.tiles.mapbox.com/v3/mousebird.map-2ebn78d1/" ext:@"png" minZoom:0 maxZoom:19];
             [baseViewC addLayer:layer];
         }
-                                                        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON)
-        {
-            NSLog(@"Failed to reach JSON tile spec at: %@",jsonTileSpec);
-        }
-         ];
-        
-        [operation start];
-    } else {
-        // Let's load a specific base layer instead
-        MaplyQuadEarthWithRemoteTiles *layer = [[MaplyQuadEarthWithRemoteTiles alloc] initWithBaseURL:@"http://a.tiles.mapbox.com/v3/mousebird.map-2ebn78d1/" ext:@"png" minZoom:0 maxZoom:19];
-        [baseViewC addLayer:layer];
     }
     
     // Cache directory for vector data
@@ -149,31 +151,50 @@
     // Add a layer to do the OSM data
     MaplyCoordinateSystem *coordSys = [[MaplySphericalMercator alloc] initWebStandard];
 
-    OSMRoadTileSource *roadSource = [[OSMRoadTileSource alloc] initWithFeatureName:@"highroad" path:@"http://tile.openstreetmap.us/vectiles-highroad/" minZoom:0 maxZoom:17];
-    roadSource.cacheDir = tileCacheDir;
-    MaplyQuadPagingLayer *osmRoadLayer = [[MaplyQuadPagingLayer alloc] initWithCoordSystem:coordSys delegate:roadSource];
-    [baseViewC addLayer:osmRoadLayer];
-    
-    OSMBuildingTileSource *buildingSource = [[OSMBuildingTileSource alloc] initWithFeatureName:@"building" path:@"http://tile.openstreetmap.us/vectiles-buildings/" minZoom:15 maxZoom:18];
-    buildingSource.cacheDir = tileCacheDir;
-    MaplyQuadPagingLayer *osmBuildingLayer = [[MaplyQuadPagingLayer alloc] initWithCoordSystem:coordSys delegate:buildingSource];
-    [baseViewC addLayer:osmBuildingLayer];    
-    
-//    OSMVectorTileSource *landDelegate = [[OSMVectorTileSource alloc] initWithMinZoom:11 maxZoom:18];
-//    landDelegate.cacheDir = landCacheDir;
-//    [landDelegate setPath:@"http://tile.openstreetmap.us/vectiles-land-usages/" minZoom:0 maxzoom:18 forFeature:OSMLandUse];
-//    MaplyQuadPagingLayer *osmLandLayer = [[MaplyQuadPagingLayer alloc] initWithCoordSystem:coordSys delegate:landDelegate];
-//    [baseViewC addLayer:osmLandLayer];
+    NSDictionary *roadSettings = _settings[kOSMRoadLayer];
+    if (roadSettings)
+    {
+        OSMRoadTileSource *roadSource = [[OSMRoadTileSource alloc] initWithFeatureName:@"highroad" path:@"http://tile.openstreetmap.us/vectiles-highroad/" minZoom:[roadSettings[kOSMLayerMin] intValue] maxZoom:[roadSettings[kOSMLayerMax] intValue]];
+        roadSource.cacheDir = tileCacheDir;
+        MaplyQuadPagingLayer *osmRoadLayer = [[MaplyQuadPagingLayer alloc] initWithCoordSystem:coordSys delegate:roadSource];
+        [baseViewC addLayer:osmRoadLayer];
+    }
 
-//    OSMVectorTileSource *waterDelegate = [[OSMVectorTileSource alloc] initWithMinZoom:0 maxZoom:18];
-//    waterDelegate.cacheDir = waterCacheDir;
-//    [waterDelegate setPath:@"http://tile.openstreetmap.us/vectiles-water-areas/" minZoom:11 maxzoom:18 forFeature:OSMWater];
-//    MaplyQuadPagingLayer *osmWaterLayer = [[MaplyQuadPagingLayer alloc] initWithCoordSystem:coordSys delegate:waterDelegate];
-//    [baseViewC addLayer:osmWaterLayer];
+    NSDictionary *roadLabelSettings = _settings[kOSMRoadLabelLayer];
+    if (roadLabelSettings)
+    {
+        OSMRoadLabelTileSource *roadLabelSource = [[OSMRoadLabelTileSource alloc] initWithFeatureName:@"highroad-labels" path:@"http://tile.openstreetmap.us/vectiles-skeletron/" minZoom:[roadLabelSettings[kOSMLayerMin] intValue] maxZoom:[roadLabelSettings[kOSMLayerMax] intValue]];
+        roadLabelSource.cacheDir = tileCacheDir;
+        MaplyQuadPagingLayer *osmRoadLabelLayer = [[MaplyQuadPagingLayer alloc] initWithCoordSystem:coordSys delegate:roadLabelSource];
+        [baseViewC addLayer:osmRoadLabelLayer];
+    }
     
-//    [fetchingDelegate setPath:@"http://tile.openstreetmap.us/vectiles-skeletron/" minZoom:0 maxzoom:16 forFeature:OSMRoadLabel];
-//    [fetchingDelegate setPath:@"http://tile.openstreetmap.us/vectiles-land-usages/" forFeature:OSMLandUse];
-//    [fetchingDelegate setPath:@"http://tile.openstreetmap.us/vectiles-water-areas/" forFeature:OSMWater];
+    NSDictionary *buildingSettings = _settings[kOSMBuildingLayer];
+    if (buildingSettings)
+    {
+        OSMBuildingTileSource *buildingSource = [[OSMBuildingTileSource alloc] initWithFeatureName:@"building" path:@"http://tile.openstreetmap.us/vectiles-buildings/" minZoom:[buildingSettings[kOSMLayerMin] intValue] maxZoom:[buildingSettings[kOSMLayerMax] intValue]];
+        buildingSource.cacheDir = tileCacheDir;
+        MaplyQuadPagingLayer *osmBuildingLayer = [[MaplyQuadPagingLayer alloc] initWithCoordSystem:coordSys delegate:buildingSource];
+        [baseViewC addLayer:osmBuildingLayer];
+    }
+    
+    NSDictionary *landSettings = _settings[kOSMLandLayer];
+    if (landSettings)
+    {
+        OSMLandTileSource *landDelegate = [[OSMLandTileSource alloc] initWithFeatureName:@"landuse" path:@"http://tile.openstreetmap.us/vectiles-land-usages/" minZoom:[landSettings[kOSMLayerMin] intValue] maxZoom:[landSettings[kOSMLayerMax] intValue]];
+        landDelegate.cacheDir = tileCacheDir;
+        MaplyQuadPagingLayer *osmLandLayer = [[MaplyQuadPagingLayer alloc] initWithCoordSystem:coordSys delegate:landDelegate];
+        [baseViewC addLayer:osmLandLayer];
+    }
+
+    NSDictionary *waterSettings = _settings[kOSMWaterLayer];
+    if (waterSettings)
+    {
+        OSMWaterTileSource *waterDelegate = [[OSMWaterTileSource alloc] initWithFeatureName:@"water" path:@"http://tile.openstreetmap.us/vectiles-water-areas/" minZoom:[waterSettings[kOSMLayerMin] intValue] maxZoom:[waterSettings[kOSMLayerMax] intValue]];
+        waterDelegate.cacheDir = tileCacheDir;
+        MaplyQuadPagingLayer *osmWaterLayer = [[MaplyQuadPagingLayer alloc] initWithCoordSystem:coordSys delegate:waterDelegate];
+        [baseViewC addLayer:osmWaterLayer];
+    }
 }
 
 - (void)viewDidUnload

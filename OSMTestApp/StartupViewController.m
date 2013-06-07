@@ -75,13 +75,22 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Globe and map
+    // Demo and Testing
     return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    int numLayers = 1;
+    int numLayers = 0;
+    switch (section)
+    {
+        case 0:
+            numLayers = 4;
+            break;
+        case 1:
+            numLayers = 2;
+            break;
+    }
     return numLayers;
 }
 
@@ -92,10 +101,10 @@
     switch (section)
     {
         case 0:
-            title = @"Globe";
+            title = @"Demo";
             break;
         case 1:
-            title = @"Map";
+            title = @"Testing";
             break;
     }
     
@@ -105,12 +114,37 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    switch (indexPath.row)
+    switch (indexPath.section)
     {
         case 0:
-            cell.textLabel.text = @"Default";
+            switch (indexPath.row)
+            {
+                case 0:
+                    cell.textLabel.text = @"Roads - Single Resolution";
+                    break;
+                case 1:
+                    cell.textLabel.text = @"Roads - Multiple Resolution";
+                    break;
+                case 2:
+                    cell.textLabel.text = @"Base Map + Multiple Layers";
+                    break;
+                case 3:
+                    cell.textLabel.text = @"Pure Vector Map";
+                    break;
+                default:
+                    break;
+            }
             break;
-        default:
+        case 1:
+            switch (indexPath.row)
+            {
+                case 0:
+                    cell.textLabel.text = @"Paging Test";
+                    break;
+                case 1:
+                    cell.textLabel.text = @"Water Test";
+                    break;
+            }
             break;
     }
     cell.textLabel.textColor = [UIColor whiteColor];
@@ -123,7 +157,84 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TestViewController *viewC = [[TestViewController alloc] initWithMapType:indexPath.section  baseLayer:indexPath.row];
+    TestViewController *viewC = [[TestViewController alloc] initWithMapType:MapGlobe  baseLayer:DefaultLayer];
+    
+    switch (indexPath.section)
+    {
+        case 0:
+            switch (indexPath.row)
+            {
+                case 0:
+                    viewC.title = @"OSM Roads - Single Res";
+                    viewC.settings = @{kOSMRoadLayer:
+                                           @{kOSMLayerMin: @(15),
+                                             kOSMLayerMax: @(15)}
+                                       };
+                    break;
+                case 1:
+                    viewC.title = @"OSM Roads - Multi Res";
+                    viewC.settings = @{kOSMRoadLayer:
+                                           @{kOSMLayerMin: @(0),
+                                             kOSMLayerMax: @(17)}
+                                       };
+                    break;
+                case 2:
+                    viewC.title = @"Base Map + OSM Layers";
+                    viewC.settings = @{kOSMBaseLayer: @(YES),
+                                       kOSMRoadLayer:
+                                           @{kOSMLayerMin: @(0),
+                                             kOSMLayerMax: @(17)},
+                                       kOSMRoadLabelLayer:
+                                           @{kOSMLayerMin: @(0),
+                                             kOSMLayerMax: @(17)},
+                                       kOSMBuildingLayer:
+                                           @{kOSMLayerMin: @(15),
+                                             kOSMLayerMax: @(18)}
+                                       };
+                    break;
+                case 3:
+                    viewC.title = @"Full OSM Vectors";
+                    viewC.settings = @{kOSMBaseLayer: @(NO),
+                                       kOSMRoadLayer:
+                                           @{kOSMLayerMin: @(0),
+                                             kOSMLayerMax: @(17)},
+                                       kOSMRoadLabelLayer:
+                                           @{kOSMLayerMin: @(0),
+                                             kOSMLayerMax: @(17)},
+                                       kOSMBuildingLayer:
+                                           @{kOSMLayerMin: @(15),
+                                             kOSMLayerMax: @(18)},
+                                       kOSMLandLayer:
+                                           @{kOSMLayerMin: @(14),
+                                             kOSMLayerMax: @(14)},
+                                       kOSMWaterLayer:
+                                           @{kOSMLayerMin: @(14),
+                                             kOSMLayerMax: @(14)}
+                                       };
+                    break;
+            }
+            break;
+        case 1:
+            switch (indexPath.row)
+            {
+                case 0:
+                    viewC.title = @"Paging Test";
+                    viewC.settings = @{kOSMRoadLayer:
+                                           @{kOSMLayerMin: @(15),
+                                             kOSMLayerMax: @(16)}
+                                       };
+                    break;
+                case 1:
+                    viewC.title = @"Water Test";
+                    viewC.settings = @{kOSMWaterLayer:
+                                           @{kOSMLayerMin: @(14),
+                                             kOSMLayerMax: @(14)}
+                                       };
+                    break;
+            }
+            break;
+    }
+    
     [self.navigationController pushViewController:viewC animated:YES];
 }
 

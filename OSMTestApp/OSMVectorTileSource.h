@@ -30,4 +30,7 @@
 /// Create with a feature name (e.g. roads) for identifying the 
 - (id)initWithFeatureName:(NSString *)featureName path:(NSString *)remotePath minZoom:(int)minZoom maxZoom:(int)maxZoom;
 
+/// Override this to construct features for display
+- (NSMutableArray *)addFeatures:(MaplyVectorObject *)vecs toView:(MaplyBaseViewController *)viewC forTile:(MaplyTileID)tileID inLayer:(MaplyQuadPagingLayer *)layer;
+
 @end

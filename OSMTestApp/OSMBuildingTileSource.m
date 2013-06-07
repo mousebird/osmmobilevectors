@@ -10,15 +10,26 @@
 
 @implementation OSMBuildingTileSource
 
-- (NSMutableArray *)addFeatures:(MaplyVectorObject *)vecs toView:(MaplyBaseViewController *)viewC
+- (NSMutableArray *)addFeatures:(MaplyVectorObject *)vecs toView:(MaplyBaseViewController *)viewC forTile:(MaplyTileID)tileID inLayer:(MaplyQuadPagingLayer *)layer
 {
     NSMutableArray *compObjs = [NSMutableArray array];
     
     // Convert this into vectors and toss it up there
-    MaplyComponentObject *compObj = [viewC addVectors:@[vecs] desc:@{kMaplyColor: [UIColor colorWithRed:1.0 green:186/255.0 blue:103/255.0 alpha:1.0],kMaplyDrawOffset: @(0),kMaplyDrawPriority: @(600),kMaplyFilled: @(YES),kMaplyFade: @(self.fade)}];
+    MaplyComponentObject *compObj = [viewC addVectors:@[vecs] desc:
+                                     @{kMaplyColor: [UIColor colorWithRed:1.0 green:186/255.0 blue:103/255.0 alpha:1.0],
+                                     kMaplyDrawOffset: @(0),
+                                   kMaplyDrawPriority: @(600),
+                                         kMaplyFilled: @(YES),
+                                           kMaplyFade: @(self.fade),
+                                         kMaplyEnable: @(NO)}];
     if (compObj)
         [compObjs addObject:compObj];
-    compObj = [viewC addVectors:@[vecs] desc:@{kMaplyColor: [UIColor colorWithRed:1.0/2.0 green:186/255.0/2.0 blue:103/255.0/2.0 alpha:1.0],kMaplyDrawOffset: @(0),kMaplyDrawPriority: @(601),kMaplyFade: @(self.fade)}];
+    compObj = [viewC addVectors:@[vecs] desc:
+               @{kMaplyColor: [UIColor colorWithRed:1.0/2.0 green:186/255.0/2.0 blue:103/255.0/2.0 alpha:1.0],
+               kMaplyDrawOffset: @(0),
+             kMaplyDrawPriority: @(601),
+                     kMaplyFade: @(self.fade),
+                   kMaplyEnable: @(NO)}];
     if (compObj)
         [compObjs addObject:compObj];
     

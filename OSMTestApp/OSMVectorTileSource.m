@@ -35,7 +35,7 @@
     _remotePath = remotePath;
     minValidZoom = minZoom;
     maxValidZoom = maxZoom;
-    _fade = 0.25;
+    _fade = 0.5;
     _scale = [UIScreen mainScreen].scale;
     
     return self;
@@ -116,7 +116,7 @@
                                    NSData *jsonData = [NSData dataWithContentsOfFile:cacheFile];
                                    
                                     MaplyVectorObject *vecs = [MaplyVectorObject VectorObjectFromGeoJSON:jsonData];
-                                    NSArray *compObjs = [self addFeatures:vecs toView:layer.viewC];
+                                    NSArray *compObjs = [self addFeatures:vecs toView:layer.viewC forTile:tileID inLayer:layer];
                                     if (compObjs)
                                     {
                                         [layer addData:compObjs forTile:tileID];
@@ -152,7 +152,7 @@
                             NSLog(@"Failed to write file: %@",cacheFile);
                     }
                     
-                    NSArray *compObjs = [self addFeatures:vecs toView:layer.viewC];
+                    NSArray *compObjs = [self addFeatures:vecs toView:layer.viewC forTile:tileID inLayer:layer];
                     if (compObjs)
                         [layer addData:compObjs forTile:tileID];
                     [layer tileDidLoad:tileID];
@@ -172,7 +172,7 @@
     }
 }
 
-- (NSMutableArray *)addFeatures:(MaplyVectorObject *)vecs toView:(MaplyBaseViewController *)viewC
+- (NSMutableArray *)addFeatures:(MaplyVectorObject *)vecs toView:(MaplyBaseViewController *)viewC forTile:(MaplyTileID)tileID inLayer:(MaplyQuadPagingLayer *)layer
 {
     return nil;
 }

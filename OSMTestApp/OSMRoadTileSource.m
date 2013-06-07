@@ -31,7 +31,7 @@ static RoadStyle RoadStyles[RoadKindMax] =
     {false,1.0,64,64,64,408}
 };
 
-- (NSMutableArray *)addFeatures:(MaplyVectorObject *)vecs toView:(MaplyBaseViewController *)viewC
+- (NSMutableArray *)addFeatures:(MaplyVectorObject *)vecs toView:(MaplyBaseViewController *)viewC forTile:(MaplyTileID)tileID inLayer:(MaplyQuadPagingLayer *)layer
 {
     NSMutableArray *compObjs = [NSMutableArray array];
 
@@ -83,7 +83,8 @@ static RoadStyle RoadStyles[RoadKindMax] =
                  kMaplyDrawOffset: @(0),
                kMaplyDrawPriority: @(style->priority),
                    kMaplyVecWidth: @(style->width*self.scale),
-                       kMaplyFade: @(self.fade)}
+                       kMaplyFade: @(self.fade),
+                     kMaplyEnable: @(NO)}
                  ];
                 if (compObj)
                     [compObjs addObject:compObj];
@@ -94,7 +95,8 @@ static RoadStyle RoadStyles[RoadKindMax] =
                  kMaplyDrawOffset: @(0),
                kMaplyDrawPriority: @(style->priority+1),
                    kMaplyVecWidth: @((style->width-1.0)*self.scale),
-                       kMaplyFade: @(self.fade)}
+                       kMaplyFade: @(self.fade),
+                     kMaplyEnable: @(NO)}
                  ];
                 if (compObj)
                     [compObjs addObject:compObj];                
@@ -106,7 +108,8 @@ static RoadStyle RoadStyles[RoadKindMax] =
                  kMaplyDrawOffset: @(0),
                kMaplyDrawPriority: @(style->priority),
                    kMaplyVecWidth: @(style->width*self.scale),
-                       kMaplyFade: @(self.fade)}
+                       kMaplyFade: @(self.fade),
+                     kMaplyEnable: @(NO)}
                  ];
                 if (compObj)
                     [compObjs addObject:compObj];

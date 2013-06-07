@@ -22,6 +22,16 @@
 #import "WhirlyGlobeComponent.h"
 #import "MaplyComponent.h"
 
+// Used to control layers from the settings
+#define kOSMBaseLayer @"BaseLayer"
+#define kOSMRoadLayer @"RoadLayer"
+#define kOSMRoadLabelLayer @"RoadLabelLayer"
+#define kOSMWaterLayer @"WaterLayer"
+#define kOSMLandLayer @"LandLayer"
+#define kOSMBuildingLayer @"BuildingLayer"
+#define kOSMLayerMin @"LayerMin"
+#define kOSMLayerMax @"LayerMax"
+
 // Map or globe or startup
 typedef enum {MapGlobe,MapMap} MapType;
 
@@ -40,6 +50,9 @@ typedef enum {DefaultLayer} BaseLayer;
     /// If we're displaying a map, this is set
     MaplyViewController *mapViewC;
 }
+
+// Used to control what shows up and where
+@property (nonatomic) NSDictionary *settings;
 
 // Fire it up with a particular base layer and map or globe display
 - (id)initWithMapType:(MapType)mapType baseLayer:(BaseLayer)baseLayer;

@@ -11,6 +11,11 @@
 		2B6F713117599DAF0043A8A6 /* OSMLandTileSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6F713017599DAF0043A8A6 /* OSMLandTileSource.m */; };
 		2B6F713417599DE50043A8A6 /* OSMWaterTileSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6F713317599DE50043A8A6 /* OSMWaterTileSource.m */; };
 		2B6F713717599DFE0043A8A6 /* OSMBuildingTileSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6F713617599DFE0043A8A6 /* OSMBuildingTileSource.m */; };
+		2B6F71A317618A3B0043A8A6 /* OSMRoadLabelTileSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6F71A217618A3B0043A8A6 /* OSMRoadLabelTileSource.m */; };
+		2BA2A25F17628A3A009C9824 /* osmVec-Logo-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BA2A25E17628A3A009C9824 /* osmVec-Logo-iPad@2x.png */; };
+		2BA2A26217628A59009C9824 /* osmVec-Logo-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BA2A26117628A59009C9824 /* osmVec-Logo-iPad.png */; };
+		2BA2A26417628A6E009C9824 /* osmVec-Logo-iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BA2A26317628A6E009C9824 /* osmVec-Logo-iPhone@2x.png */; };
+		2BA2A26617628A96009C9824 /* osmVec-Logo-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BA2A26517628A96009C9824 /* osmVec-Logo-iPhone.png */; };
 		2BCB4869174DC2B50054F396 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BCB4868174DC2B50054F396 /* UIKit.framework */; };
 		2BCB486B174DC2B50054F396 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BCB486A174DC2B50054F396 /* Foundation.framework */; };
 		2BCB486D174DC2B50054F396 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BCB486C174DC2B50054F396 /* CoreGraphics.framework */; };
@@ -59,6 +64,12 @@
 		2B6F713317599DE50043A8A6 /* OSMWaterTileSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMWaterTileSource.m; sourceTree = "<group>"; };
 		2B6F713517599DFE0043A8A6 /* OSMBuildingTileSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMBuildingTileSource.h; sourceTree = "<group>"; };
 		2B6F713617599DFE0043A8A6 /* OSMBuildingTileSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMBuildingTileSource.m; sourceTree = "<group>"; };
+		2B6F71A117618A3B0043A8A6 /* OSMRoadLabelTileSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMRoadLabelTileSource.h; sourceTree = "<group>"; };
+		2B6F71A217618A3B0043A8A6 /* OSMRoadLabelTileSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMRoadLabelTileSource.m; sourceTree = "<group>"; };
+		2BA2A25E17628A3A009C9824 /* osmVec-Logo-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "osmVec-Logo-iPad@2x.png"; sourceTree = "<group>"; };
+		2BA2A26117628A59009C9824 /* osmVec-Logo-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "osmVec-Logo-iPad.png"; sourceTree = "<group>"; };
+		2BA2A26317628A6E009C9824 /* osmVec-Logo-iPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "osmVec-Logo-iPhone@2x.png"; sourceTree = "<group>"; };
+		2BA2A26517628A96009C9824 /* osmVec-Logo-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "osmVec-Logo-iPhone.png"; sourceTree = "<group>"; };
 		2BCB4865174DC2B50054F396 /* OSMTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OSMTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BCB4868174DC2B50054F396 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2BCB486A174DC2B50054F396 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -132,6 +143,8 @@
 				2BCB48BB174EAD4D0054F396 /* OSMVectorTileSource.m */,
 				2B6F712B17599D0C0043A8A6 /* OSMRoadTileSource.h */,
 				2B6F712C17599D0C0043A8A6 /* OSMRoadTileSource.m */,
+				2B6F71A117618A3B0043A8A6 /* OSMRoadLabelTileSource.h */,
+				2B6F71A217618A3B0043A8A6 /* OSMRoadLabelTileSource.m */,
 				2B6F712F17599DAF0043A8A6 /* OSMLandTileSource.h */,
 				2B6F713017599DAF0043A8A6 /* OSMLandTileSource.m */,
 				2B6F713217599DE50043A8A6 /* OSMWaterTileSource.h */,
@@ -145,6 +158,10 @@
 		2BCB485C174DC2B50054F396 = {
 			isa = PBXGroup;
 			children = (
+				2BA2A26517628A96009C9824 /* osmVec-Logo-iPhone.png */,
+				2BA2A26317628A6E009C9824 /* osmVec-Logo-iPhone@2x.png */,
+				2BA2A26117628A59009C9824 /* osmVec-Logo-iPad.png */,
+				2BA2A25E17628A3A009C9824 /* osmVec-Logo-iPad@2x.png */,
 				2BCB48B8174DCAC60054F396 /* QuartzCore.framework */,
 				2BCB48B6174DCAB90054F396 /* OpenGLES.framework */,
 				2BCB48B4174DCAA30054F396 /* libstdc++.dylib */,
@@ -179,13 +196,13 @@
 		2BCB486E174DC2B50054F396 /* OSMTestApp */ = {
 			isa = PBXGroup;
 			children = (
-				2B6F712E17599D160043A8A6 /* OSM Vectors */,
 				2BCB4877174DC2B50054F396 /* AppDelegate.h */,
 				2BCB4878174DC2B50054F396 /* AppDelegate.m */,
 				2BCB4886174DC4B40054F396 /* StartupViewController.h */,
 				2BCB4885174DC4B40054F396 /* StartupViewController.m */,
 				2BCB4889174DC59D0054F396 /* TestViewController.h */,
 				2BCB4888174DC59D0054F396 /* TestViewController.m */,
+				2B6F712E17599D160043A8A6 /* OSM Vectors */,
 				2BCB486F174DC2B50054F396 /* Supporting Files */,
 			);
 			path = OSMTestApp;
@@ -310,6 +327,10 @@
 				2BCB487B174DC2B50054F396 /* Default.png in Resources */,
 				2BCB487D174DC2B50054F396 /* Default@2x.png in Resources */,
 				2BCB487F174DC2B50054F396 /* Default-568h@2x.png in Resources */,
+				2BA2A25F17628A3A009C9824 /* osmVec-Logo-iPad@2x.png in Resources */,
+				2BA2A26217628A59009C9824 /* osmVec-Logo-iPad.png in Resources */,
+				2BA2A26417628A6E009C9824 /* osmVec-Logo-iPhone@2x.png in Resources */,
+				2BA2A26617628A96009C9824 /* osmVec-Logo-iPhone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +359,7 @@
 				2B6F713117599DAF0043A8A6 /* OSMLandTileSource.m in Sources */,
 				2B6F713417599DE50043A8A6 /* OSMWaterTileSource.m in Sources */,
 				2B6F713717599DFE0043A8A6 /* OSMBuildingTileSource.m in Sources */,
+				2B6F71A317618A3B0043A8A6 /* OSMRoadLabelTileSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
