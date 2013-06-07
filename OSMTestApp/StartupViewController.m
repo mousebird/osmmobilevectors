@@ -85,7 +85,7 @@
     switch (section)
     {
         case 0:
-            numLayers = 4;
+            numLayers = 5;
             break;
         case 1:
             numLayers = 2;
@@ -129,6 +129,9 @@
                     cell.textLabel.text = @"Base Map + Multiple Layers";
                     break;
                 case 3:
+                    cell.textLabel.text = @"Base Map + Multiple Layers + Labels";
+                    break;
+                case 4:
                     cell.textLabel.text = @"Pure Vector Map";
                     break;
                 default:
@@ -179,7 +182,18 @@
                                        };
                     break;
                 case 2:
-                    viewC.title = @"Base Map + OSM Layers";
+                    viewC.title = @"Base Map + Roads + Buildings";
+                    viewC.settings = @{kOSMBaseLayer: @(YES),
+                                       kOSMRoadLayer:
+                                           @{kOSMLayerMin: @(0),
+                                             kOSMLayerMax: @(17)},
+                                       kOSMBuildingLayer:
+                                           @{kOSMLayerMin: @(15),
+                                             kOSMLayerMax: @(18)}
+                                       };
+                    break;
+                case 3:
+                    viewC.title = @"Base Map + OSM Layers + Labels";
                     viewC.settings = @{kOSMBaseLayer: @(YES),
                                        kOSMRoadLayer:
                                            @{kOSMLayerMin: @(0),
@@ -192,7 +206,7 @@
                                              kOSMLayerMax: @(18)}
                                        };
                     break;
-                case 3:
+                case 4:
                     viewC.title = @"Full OSM Vectors";
                     viewC.settings = @{kOSMBaseLayer: @(NO),
                                        kOSMRoadLayer:

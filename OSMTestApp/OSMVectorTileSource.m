@@ -110,7 +110,7 @@
             if ([[NSFileManager defaultManager] fileExistsAtPath:cacheFile])
             {
                 wasCached = true;
-                NSLog(@"Cached: %@",cacheFile);
+//                NSLog(@"Cached: %@",cacheFile);
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
                                ^{
                                    NSData *jsonData = [NSData dataWithContentsOfFile:cacheFile];
@@ -131,7 +131,7 @@
             // Construct the full URL
             NSString *fullUrl = [NSString stringWithFormat:@"%@/%d/%d/%d.json",_remotePath,tileID.level,tileID.x,maxY - tileID.y - 1];
             
-            NSLog(@"Fetching: %@",cacheFile);
+//            NSLog(@"Fetching: %@",cacheFile);
 
             // Kick off the request for the geojson
             NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:fullUrl]];
