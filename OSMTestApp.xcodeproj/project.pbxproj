@@ -12,6 +12,8 @@
 		2B6F713417599DE50043A8A6 /* OSMWaterTileSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6F713317599DE50043A8A6 /* OSMWaterTileSource.m */; };
 		2B6F713717599DFE0043A8A6 /* OSMBuildingTileSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6F713617599DFE0043A8A6 /* OSMBuildingTileSource.m */; };
 		2B6F71A317618A3B0043A8A6 /* OSMRoadLabelTileSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6F71A217618A3B0043A8A6 /* OSMRoadLabelTileSource.m */; };
+		2B75B9F91763808700C7C7BE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B75B9F81763808700C7C7BE /* CoreLocation.framework */; };
+		2B75BA021763860600C7C7BE /* libWhirlyGlobe-MaplyComponent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B75BA011763821A00C7C7BE /* libWhirlyGlobe-MaplyComponent.a */; };
 		2BA2A25F17628A3A009C9824 /* osmVec-Logo-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BA2A25E17628A3A009C9824 /* osmVec-Logo-iPad@2x.png */; };
 		2BA2A26217628A59009C9824 /* osmVec-Logo-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BA2A26117628A59009C9824 /* osmVec-Logo-iPad.png */; };
 		2BA2A26417628A6E009C9824 /* osmVec-Logo-iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BA2A26317628A6E009C9824 /* osmVec-Logo-iPhone@2x.png */; };
@@ -27,7 +29,6 @@
 		2BCB487F174DC2B50054F396 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BCB487E174DC2B50054F396 /* Default-568h@2x.png */; };
 		2BCB4887174DC4B40054F396 /* StartupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB4885174DC4B40054F396 /* StartupViewController.m */; };
 		2BCB488A174DC59D0054F396 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB4888174DC59D0054F396 /* TestViewController.m */; };
-		2BCB4892174DC8F30054F396 /* libWhirlyGlobe-MaplyComponent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BCB4891174DC8EF0054F396 /* libWhirlyGlobe-MaplyComponent.a */; };
 		2BCB4894174DC8FC0054F396 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BCB4893174DC8FC0054F396 /* libsqlite3.dylib */; };
 		2BCB4896174DC9020054F396 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BCB4895174DC9020054F396 /* CoreText.framework */; };
 		2BCB48AB174DC9E80054F396 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB4899174DC9E80054F396 /* AFHTTPClient.m */; };
@@ -46,9 +47,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2BCB4890174DC8EF0054F396 /* PBXContainerItemProxy */ = {
+		2B75BA001763821A00C7C7BE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2BCB488B174DC8EF0054F396 /* WhirlyGlobe-MaplyComponent.xcodeproj */;
+			containerPortal = 2B75B9FB1763821A00C7C7BE /* WhirlyGlobe-MaplyComponent.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 2B11E0DB15B4C030007AAE3F;
 			remoteInfo = "WhirlyGlobe-MaplyComponent";
@@ -66,6 +67,8 @@
 		2B6F713617599DFE0043A8A6 /* OSMBuildingTileSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMBuildingTileSource.m; sourceTree = "<group>"; };
 		2B6F71A117618A3B0043A8A6 /* OSMRoadLabelTileSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMRoadLabelTileSource.h; sourceTree = "<group>"; };
 		2B6F71A217618A3B0043A8A6 /* OSMRoadLabelTileSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMRoadLabelTileSource.m; sourceTree = "<group>"; };
+		2B75B9F81763808700C7C7BE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2B75B9FB1763821A00C7C7BE /* WhirlyGlobe-MaplyComponent.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "WhirlyGlobe-MaplyComponent.xcodeproj"; path = "libs/WhirlyGlobe-Maply/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/WhirlyGlobe-MaplyComponent.xcodeproj"; sourceTree = "<group>"; };
 		2BA2A25E17628A3A009C9824 /* osmVec-Logo-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "osmVec-Logo-iPad@2x.png"; sourceTree = "<group>"; };
 		2BA2A26117628A59009C9824 /* osmVec-Logo-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "osmVec-Logo-iPad.png"; sourceTree = "<group>"; };
 		2BA2A26317628A6E009C9824 /* osmVec-Logo-iPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "osmVec-Logo-iPhone@2x.png"; sourceTree = "<group>"; };
@@ -87,7 +90,6 @@
 		2BCB4886174DC4B40054F396 /* StartupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartupViewController.h; sourceTree = "<group>"; };
 		2BCB4888174DC59D0054F396 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		2BCB4889174DC59D0054F396 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		2BCB488B174DC8EF0054F396 /* WhirlyGlobe-MaplyComponent.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "WhirlyGlobe-MaplyComponent.xcodeproj"; path = "../WhirlyGlobe2/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/WhirlyGlobe-MaplyComponent.xcodeproj"; sourceTree = "<group>"; };
 		2BCB4893174DC8FC0054F396 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		2BCB4895174DC9020054F396 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		2BCB4898174DC9E80054F396 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPClient.h; path = ../utilities/AFNetworking/AFNetworking/AFNetworking/AFHTTPClient.h; sourceTree = "<group>"; };
@@ -121,13 +123,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B75BA021763860600C7C7BE /* libWhirlyGlobe-MaplyComponent.a in Frameworks */,
+				2B75B9F91763808700C7C7BE /* CoreLocation.framework in Frameworks */,
 				2BCB48B9174DCAC60054F396 /* QuartzCore.framework in Frameworks */,
 				2BCB48B7174DCAB90054F396 /* OpenGLES.framework in Frameworks */,
 				2BCB48B5174DCAA30054F396 /* libstdc++.dylib in Frameworks */,
 				2BCB486D174DC2B50054F396 /* CoreGraphics.framework in Frameworks */,
 				2BCB4896174DC9020054F396 /* CoreText.framework in Frameworks */,
 				2BCB4894174DC8FC0054F396 /* libsqlite3.dylib in Frameworks */,
-				2BCB4892174DC8F30054F396 /* libWhirlyGlobe-MaplyComponent.a in Frameworks */,
 				2BCB4869174DC2B50054F396 /* UIKit.framework in Frameworks */,
 				2BCB486B174DC2B50054F396 /* Foundation.framework in Frameworks */,
 			);
@@ -155,9 +158,19 @@
 			name = "OSM Vectors";
 			sourceTree = "<group>";
 		};
+		2B75B9FC1763821A00C7C7BE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2B75BA011763821A00C7C7BE /* libWhirlyGlobe-MaplyComponent.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		2BCB485C174DC2B50054F396 = {
 			isa = PBXGroup;
 			children = (
+				2B75B9FB1763821A00C7C7BE /* WhirlyGlobe-MaplyComponent.xcodeproj */,
+				2B75B9F81763808700C7C7BE /* CoreLocation.framework */,
 				2BA2A26517628A96009C9824 /* osmVec-Logo-iPhone.png */,
 				2BA2A26317628A6E009C9824 /* osmVec-Logo-iPhone@2x.png */,
 				2BA2A26117628A59009C9824 /* osmVec-Logo-iPad.png */,
@@ -185,7 +198,6 @@
 		2BCB4867174DC2B50054F396 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2BCB488B174DC8EF0054F396 /* WhirlyGlobe-MaplyComponent.xcodeproj */,
 				2BCB4868174DC2B50054F396 /* UIKit.framework */,
 				2BCB486A174DC2B50054F396 /* Foundation.framework */,
 				2BCB486C174DC2B50054F396 /* CoreGraphics.framework */,
@@ -220,14 +232,6 @@
 				2BCB487E174DC2B50054F396 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		2BCB488C174DC8EF0054F396 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2BCB4891174DC8EF0054F396 /* libWhirlyGlobe-MaplyComponent.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		2BCB4897174DC9CA0054F396 /* AFNetworking */ = {
@@ -297,8 +301,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 2BCB488C174DC8EF0054F396 /* Products */;
-					ProjectRef = 2BCB488B174DC8EF0054F396 /* WhirlyGlobe-MaplyComponent.xcodeproj */;
+					ProductGroup = 2B75B9FC1763821A00C7C7BE /* Products */;
+					ProjectRef = 2B75B9FB1763821A00C7C7BE /* WhirlyGlobe-MaplyComponent.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -309,11 +313,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		2BCB4891174DC8EF0054F396 /* libWhirlyGlobe-MaplyComponent.a */ = {
+		2B75BA011763821A00C7C7BE /* libWhirlyGlobe-MaplyComponent.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libWhirlyGlobe-MaplyComponent.a";
-			remoteRef = 2BCB4890174DC8EF0054F396 /* PBXContainerItemProxy */;
+			remoteRef = 2B75BA001763821A00C7C7BE /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -440,7 +444,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OSMTestApp/OSMTestApp-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../WhirlyGlobe2/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/\"";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/libs/WhirlyGlobe-Maply/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/\"";
 				INFOPLIST_FILE = "OSMTestApp/OSMTestApp-Info.plist";
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -453,7 +457,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OSMTestApp/OSMTestApp-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../WhirlyGlobe2/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/\"";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/libs/WhirlyGlobe-Maply/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/\"";
 				INFOPLIST_FILE = "OSMTestApp/OSMTestApp-Info.plist";
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";

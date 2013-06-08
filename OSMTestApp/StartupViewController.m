@@ -88,7 +88,7 @@
             numLayers = 5;
             break;
         case 1:
-            numLayers = 2;
+            numLayers = 8;
             break;
     }
     return numLayers;
@@ -146,6 +146,24 @@
                     break;
                 case 1:
                     cell.textLabel.text = @"Water Test";
+                    break;
+                case 2:
+                    cell.textLabel.text = @"Base Map Only";
+                    break;
+                case 3:
+                    cell.textLabel.text = @"Roads Only";
+                    break;
+                case 4:
+                    cell.textLabel.text = @"Road Labels Only";
+                    break;
+                case 5:
+                    cell.textLabel.text = @"Water Only";
+                    break;
+                case 6:
+                    cell.textLabel.text = @"Land Use Only";
+                    break;
+                case 7:
+                    cell.textLabel.text = @"Buildings Only";
                     break;
             }
             break;
@@ -243,6 +261,46 @@
                     viewC.settings = @{kOSMWaterLayer:
                                            @{kOSMLayerMin: @(14),
                                              kOSMLayerMax: @(14)}
+                                       };
+                    break;
+                case 2:
+                    viewC.title = @"Base Map Only";
+                    viewC.settings = @{kOSMBaseLayer: @(YES)
+                                       };
+                    break;
+                case 3:
+                    viewC.title = @"Roads Only";
+                    viewC.settings = @{kOSMRoadLayer:
+                                           @{kOSMLayerMin: @(0),
+                                             kOSMLayerMax: @(17)}
+                                       };
+                    break;
+                case 4:
+                    viewC.title = @"Road Labels Only";
+                    viewC.settings = @{kOSMRoadLabelLayer:
+                                           @{kOSMLayerMin: @(0),
+                                             kOSMLayerMax: @(17)}
+                                       };
+                    break;
+                case 5:
+                    viewC.title = @"Water Only";
+                    viewC.settings = @{kOSMWaterLayer:
+                                           @{kOSMLayerMin: @(14),
+                                             kOSMLayerMax: @(14)}
+                                       };
+                    break;
+                case 6:
+                    viewC.title = @"Land Use Only";
+                    viewC.settings = @{kOSMLandLayer:
+                                           @{kOSMLayerMin: @(14),
+                                             kOSMLayerMax: @(14)}
+                                       };
+                    break;
+                case 7:
+                    viewC.title = @"Buildings Only";
+                    viewC.settings = @{kOSMBuildingLayer:
+                                           @{kOSMLayerMin: @(15),
+                                             kOSMLayerMax: @(18)}
                                        };
                     break;
             }

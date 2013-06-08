@@ -44,6 +44,8 @@ static RoadStyle RoadStyles[RoadKindMax] =
     for (MaplyVectorObject *vecObj in roads)
     {
         NSString *kind = vecObj.attributes[@"kind"];
+        // Note: Testing
+//        kind = @"path";
         if (!kind)
         {
             [groups[Unknown] addObject:vecObj];
