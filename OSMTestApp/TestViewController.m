@@ -138,7 +138,7 @@
             [operation start];
         } else {
             // Let's load a specific base layer instead
-            MaplyQuadEarthWithRemoteTiles *layer = [[MaplyQuadEarthWithRemoteTiles alloc] initWithBaseURL:@"http://a.tiles.mapbox.com/v3/mousebird.map-2ebn78d1/" ext:@"png" minZoom:0 maxZoom:19];
+            MaplyQuadEarthWithRemoteTiles *layer = [[MaplyQuadEarthWithRemoteTiles alloc] initWithBaseURL:@"http://a.tiles.mapbox.com/v3/mousebird.map-2ebn78d1/" ext:@"png" minZoom:0 maxZoom:14];
             [baseViewC addLayer:layer];
         }
     }
@@ -156,7 +156,9 @@
     {
         OSMRoadTileSource *roadSource = [[OSMRoadTileSource alloc] initWithFeatureName:@"highroad" path:@"http://tile.openstreetmap.us/vectiles-highroad/" minZoom:[roadSettings[kOSMLayerMin] intValue] maxZoom:[roadSettings[kOSMLayerMax] intValue]];
         roadSource.cacheDir = tileCacheDir;
+        // Note: Debugging
         MaplyQuadPagingLayer *osmRoadLayer = [[MaplyQuadPagingLayer alloc] initWithCoordSystem:coordSys delegate:roadSource];
+        osmRoadLayer.numSimultaneousFetches = 8;
         [baseViewC addLayer:osmRoadLayer];
     }
 

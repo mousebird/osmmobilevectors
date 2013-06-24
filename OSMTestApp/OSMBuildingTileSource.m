@@ -12,6 +12,9 @@
 
 - (NSMutableArray *)addFeatures:(MaplyVectorObject *)vecs toView:(MaplyBaseViewController *)viewC forTile:(MaplyTileID)tileID inLayer:(MaplyQuadPagingLayer *)layer
 {
+    if (!vecs)
+        return nil;
+
     NSMutableArray *compObjs = [NSMutableArray array];
     
     // Convert this into vectors and toss it up there
