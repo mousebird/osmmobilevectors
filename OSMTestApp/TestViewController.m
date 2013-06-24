@@ -148,55 +148,44 @@
     NSString *tileCacheDir = [NSString stringWithFormat:@"%@/tileCache/",cacheDir];
     [[NSFileManager defaultManager] createDirectoryAtPath:tileCacheDir withIntermediateDirectories:YES attributes:nil error:&error];
     
-    // Add a layer to do the OSM data
-    MaplyCoordinateSystem *coordSys = [[MaplySphericalMercator alloc] initWebStandard];
-
+    // Set up the parsing delegate for the OSM data
+    OSMVectorTileSource *osmTileSource = [[OSMVectorTileSource alloc] initWithPath:@"http://tile.openstreetmap.us/vectiles-all" minZoom:0 maxZoom:19];
+    osmTileSource.cacheDir = tileCacheDir;
     NSDictionary *roadSettings = _settings[kOSMRoadLayer];
     if (roadSettings)
     {
-        OSMRoadTileSource *roadSource = [[OSMRoadTileSource alloc] initWithFeatureName:@"highroad" path:@"http://tile.openstreetmap.us/vectiles-highroad/" minZoom:[roadSettings[kOSMLayerMin] intValue] maxZoom:[roadSettings[kOSMLayerMax] intValue]];
-        roadSource.cacheDir = tileCacheDir;
-        // Note: Debugging
-        MaplyQuadPagingLayer *osmRoadLayer = [[MaplyQuadPagingLayer alloc] initWithCoordSystem:coordSys delegate:roadSource];
-        osmRoadLayer.numSimultaneousFetches = 8;
-        [baseViewC addLayer:osmRoadLayer];
+        OSMRoadTileSource *roadSource = [[OSMRoadTileSource alloc] initWithFeatureName:@"highroad"];
+        [osmTileSource addCategory:roadSource];
     }
-
     NSDictionary *roadLabelSettings = _settings[kOSMRoadLabelLayer];
     if (roadLabelSettings)
     {
-        OSMRoadLabelTileSource *roadLabelSource = [[OSMRoadLabelTileSource alloc] initWithFeatureName:@"highroad-labels" path:@"http://tile.openstreetmap.us/vectiles-skeletron/" minZoom:[roadLabelSettings[kOSMLayerMin] intValue] maxZoom:[roadLabelSettings[kOSMLayerMax] intValue]];
-        roadLabelSource.cacheDir = tileCacheDir;
-        MaplyQuadPagingLayer *osmRoadLabelLayer = [[MaplyQuadPagingLayer alloc] initWithCoordSystem:coordSys delegate:roadLabelSource];
-        [baseViewC addLayer:osmRoadLabelLayer];
+        OSMRoadLabelTileSource *roadLabelSource = [[OSMRoadLabelTileSource alloc] initWithFeatureName:@"skeletron"];
+        [osmTileSource addCategory:roadLabelSource];
     }
-    
     NSDictionary *buildingSettings = _settings[kOSMBuildingLayer];
     if (buildingSettings)
     {
-        OSMBuildingTileSource *buildingSource = [[OSMBuildingTileSource alloc] initWithFeatureName:@"building" path:@"http://tile.openstreetmap.us/vectiles-buildings/" minZoom:[buildingSettings[kOSMLayerMin] intValue] maxZoom:[buildingSettings[kOSMLayerMax] intValue]];
-        buildingSource.cacheDir = tileCacheDir;
-        MaplyQuadPagingLayer *osmBuildingLayer = [[MaplyQuadPagingLayer alloc] initWithCoordSystem:coordSys delegate:buildingSource];
-        [baseViewC addLayer:osmBuildingLayer];
+        OSMBuildingTileSource *buildingSource = [[OSMBuildingTileSource alloc] initWithFeatureName:@"buildings"];
+        [osmTileSource addCategory:buildingSource];
     }
-    
     NSDictionary *landSettings = _settings[kOSMLandLayer];
     if (landSettings)
     {
-        OSMLandTileSource *landDelegate = [[OSMLandTileSource alloc] initWithFeatureName:@"landuse" path:@"http://tile.openstreetmap.us/vectiles-land-usages/" minZoom:[landSettings[kOSMLayerMin] intValue] maxZoom:[landSettings[kOSMLayerMax] intValue]];
-        landDelegate.cacheDir = tileCacheDir;
-        MaplyQuadPagingLayer *osmLandLayer = [[MaplyQuadPagingLayer alloc] initWithCoordSystem:coordSys delegate:landDelegate];
-        [baseViewC addLayer:osmLandLayer];
+        OSMLandTileSource *landSource = [[OSMLandTileSource alloc] initWithFeatureName:@"land-usages"];
+        [osmTileSource addCategory:landSource];
     }
-
     NSDictionary *waterSettings = _settings[kOSMWaterLayer];
     if (waterSettings)
     {
-        OSMWaterTileSource *waterDelegate = [[OSMWaterTileSource alloc] initWithFeatureName:@"water" path:@"http://tile.openstreetmap.us/vectiles-water-areas/" minZoom:[waterSettings[kOSMLayerMin] intValue] maxZoom:[waterSettings[kOSMLayerMax] intValue]];
-        waterDelegate.cacheDir = tileCacheDir;
-        MaplyQuadPagingLayer *osmWaterLayer = [[MaplyQuadPagingLayer alloc] initWithCoordSystem:coordSys delegate:waterDelegate];
-        [baseViewC addLayer:osmWaterLayer];
+        OSMWaterTileSource *waterSource = [[OSMWaterTileSource alloc] initWithFeatureName:@"water-areas"];
+        [osmTileSource addCategory:waterSource];
     }
+    
+    // Add a layer to fetch combined OSM vector data
+    MaplyCoordinateSystem *coordSys = [[MaplySphericalMercator alloc] initWebStandard];
+    MaplyQuadPagingLayer *osmLayer = [[MaplyQuadPagingLayer alloc] initWithCoordSystem:coordSys delegate:osmTileSource];
+    [baseViewC addLayer:osmLayer];
 }
 
 - (void)viewDidUnload

@@ -8,6 +8,6 @@
 
 #import "OSMVectorTileSource.h"
 
-@interface OSMRoadLabelTileSource : OSMVectorTileSource
+@interface OSMRoadLabelTileSource : OSMVectorCategory
 
 @end

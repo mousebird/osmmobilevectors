@@ -15,15 +15,16 @@
     NSMutableArray *compObjs = [NSMutableArray array];
     
     // We'll tesselate these here rather than make the layer thread do it
-    MaplyVectorObject *tris = [vecs tesselate];
+//    MaplyVectorObject *tris = [vecs tesselate];
     
     // Convert this into vectors and toss it up there
-    MaplyComponentObject *compObj = [viewC addVectors:@[tris] desc:
+    MaplyComponentObject *compObj = [viewC addVectors:@[vecs] desc:
                                      @{kMaplyColor: [UIColor colorWithRed:137/255.0 green:188/255.0 blue:228/255.0 alpha:1.0],kMaplyDrawOffset: @(0),
                                    kMaplyDrawPriority: @(200),
-                                         kMaplyFilled: @(YES),
+//                                         kMaplyFilled: @(YES),
                                          kMaplyEnable: @(NO),
-                                           kMaplyFade: @(self.fade)}];
+                                           kMaplyFade: @(self.fade)
+                                     }];
     if (compObj)
         [compObjs addObject:compObj];
     
