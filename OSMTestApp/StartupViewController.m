@@ -178,7 +178,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TestViewController *viewC = [[TestViewController alloc] initWithMapType:MapGlobe  baseLayer:DefaultLayer];
+    TestViewController *viewC = [[TestViewController alloc] initWithMapType:MapMap  baseLayer:DefaultLayer];
     
     switch (indexPath.section)
     {

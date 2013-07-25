@@ -85,13 +85,16 @@
     // Set the background color for the globe
     baseViewC.clearColor = [UIColor colorWithRed:238/255.0 green:238/255.0 blue:238/255.0 alpha:1.0];
     
+    // Culling is kind of a waste anymore
+    [baseViewC setHints:@{kMaplyRenderHintCulling: @(NO)}];
+    
     // This will get us taps and such
     if (globeViewC)
     {
         // Start up over San Francisco
         globeViewC.height = 0.005;
         [globeViewC animateToPosition:MaplyCoordinateMakeWithDegrees(-122.4192, 37.7793) time:1.0];
-        [globeViewC setHints:@{kMaplyRenderHintZBuffer: @(NO)}];
+//        [globeViewC setHints:@{kMaplyRenderHintZBuffer: @(NO)}];
     } else {
         mapViewC.height = 1.0;
         [mapViewC animateToPosition:MaplyCoordinateMakeWithDegrees(-122.4192, 37.7793) time:1.0];
@@ -139,6 +142,8 @@
         } else {
             // Let's load a specific base layer instead
             MaplyQuadEarthWithRemoteTiles *layer = [[MaplyQuadEarthWithRemoteTiles alloc] initWithBaseURL:@"http://a.tiles.mapbox.com/v3/mousebird.map-2ebn78d1/" ext:@"png" minZoom:0 maxZoom:14];
+            layer.numSimultaneousFetches = 8;
+            layer.handleEdges = true;
             [baseViewC addLayer:layer];
         }
     }
@@ -185,6 +190,7 @@
     // Add a layer to fetch combined OSM vector data
     MaplyCoordinateSystem *coordSys = [[MaplySphericalMercator alloc] initWebStandard];
     MaplyQuadPagingLayer *osmLayer = [[MaplyQuadPagingLayer alloc] initWithCoordSystem:coordSys delegate:osmTileSource];
+    osmLayer.numSimultaneousFetches = 4;
     [baseViewC addLayer:osmLayer];
 }
 

@@ -40,25 +40,25 @@
                 // Change the size and color depending on the type 
                 NSString *highway = line.attributes[@"highway"];
                 UIColor *textColor = [UIColor blackColor];
-                UIColor *shadowColor = nil;
+                UIColor *outlineColor = nil;
                 UIFont *textFont = [UIFont systemFontOfSize:14.0];
                 if (!highway)
                 {
                 } else if (![highway compare:@"primary"])
                 {
                     textColor = [UIColor whiteColor];
-                    shadowColor = [UIColor blackColor];
+                    outlineColor = [UIColor blackColor];
                     textFont = [UIFont boldSystemFontOfSize:18.0];
                 } else if (![highway compare:@"secondary"])
                 {
                     textColor = [UIColor whiteColor];
                     textFont = [UIFont systemFontOfSize:16.0];
-                    shadowColor = [UIColor blackColor];
+                    outlineColor = [UIColor blackColor];
                 } else if (![highway compare:@"tertiary"])
                 {
                     textColor = [UIColor blackColor];
                     textFont = [UIFont boldSystemFontOfSize:14.0];
-                    shadowColor = [UIColor whiteColor];
+                    outlineColor = [UIColor whiteColor];
                 }
                 
                 if (label.text)
@@ -68,10 +68,10 @@
                                                   kMaplyEnable: @(NO),
                                                   kMaplyFont: textFont
                                                  }];
-                    if (shadowColor)
+                    if (outlineColor)
                     {
-                        desc[kMaplyShadowColor] = shadowColor;
-                        desc[kMaplyShadowSize] = @(1.0);
+                        desc[kMaplyTextOutlineColor] = outlineColor;
+                        desc[kMaplyTextOutlineSize] = @(1.0);
                     }
                     // Adding these one by one is a bit slow
                     MaplyComponentObject *compObj = [viewC addScreenLabels:@[label] desc:desc];

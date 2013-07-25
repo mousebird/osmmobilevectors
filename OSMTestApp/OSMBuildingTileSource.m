@@ -17,8 +17,10 @@
 
     NSMutableArray *compObjs = [NSMutableArray array];
     
+    MaplyVectorObject *tris = [vecs tesselate];
+    
     // Convert this into vectors and toss it up there
-    MaplyComponentObject *compObj = [viewC addVectors:@[vecs] desc:
+    MaplyComponentObject *compObj = [viewC addVectors:@[tris] desc:
                                      @{kMaplyColor: [UIColor colorWithRed:1.0 green:186/255.0 blue:103/255.0 alpha:1.0],
                                      kMaplyDrawOffset: @(0),
                                    kMaplyDrawPriority: @(600),
