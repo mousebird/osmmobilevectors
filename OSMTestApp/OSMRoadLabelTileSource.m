@@ -36,6 +36,7 @@
                 label.layoutImportance = 1.0;
                 label.layoutPlacement = kMaplyLayoutRight;
                 label.rotation = rot+M_PI/2.0;
+                // Keep the labels upright
                 if (label.rotation > M_PI/2 && label.rotation < 3*M_PI/2)
                     label.rotation = label.rotation + M_PI;
 
