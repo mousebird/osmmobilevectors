@@ -29,6 +29,7 @@
 #define kOSMWaterLayer @"WaterLayer"
 #define kOSMLandLayer @"LandLayer"
 #define kOSMBuildingLayer @"BuildingLayer"
+#define kOSMPOILayer @"PointOfInterestLayer"
 #define kOSMLayerMin @"LayerMin"
 #define kOSMLayerMax @"LayerMax"
 

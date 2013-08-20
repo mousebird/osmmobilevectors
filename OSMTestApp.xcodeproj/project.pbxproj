@@ -19,6 +19,7 @@
 		2BA2A26217628A59009C9824 /* osmVec-Logo-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BA2A26117628A59009C9824 /* osmVec-Logo-iPad.png */; };
 		2BA2A26417628A6E009C9824 /* osmVec-Logo-iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BA2A26317628A6E009C9824 /* osmVec-Logo-iPhone@2x.png */; };
 		2BA2A26617628A96009C9824 /* osmVec-Logo-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BA2A26517628A96009C9824 /* osmVec-Logo-iPhone.png */; };
+		2BB16F1E17C3221E00932883 /* OSMPointOfInterestTileSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BB16F1D17C3221E00932883 /* OSMPointOfInterestTileSource.m */; };
 		2BCB4869174DC2B50054F396 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BCB4868174DC2B50054F396 /* UIKit.framework */; };
 		2BCB486B174DC2B50054F396 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BCB486A174DC2B50054F396 /* Foundation.framework */; };
 		2BCB486D174DC2B50054F396 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BCB486C174DC2B50054F396 /* CoreGraphics.framework */; };
@@ -75,6 +76,8 @@
 		2BA2A26117628A59009C9824 /* osmVec-Logo-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "osmVec-Logo-iPad.png"; sourceTree = "<group>"; };
 		2BA2A26317628A6E009C9824 /* osmVec-Logo-iPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "osmVec-Logo-iPhone@2x.png"; sourceTree = "<group>"; };
 		2BA2A26517628A96009C9824 /* osmVec-Logo-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "osmVec-Logo-iPhone.png"; sourceTree = "<group>"; };
+		2BB16F1C17C3221E00932883 /* OSMPointOfInterestTileSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMPointOfInterestTileSource.h; sourceTree = "<group>"; };
+		2BB16F1D17C3221E00932883 /* OSMPointOfInterestTileSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMPointOfInterestTileSource.m; sourceTree = "<group>"; };
 		2BCB4865174DC2B50054F396 /* OSMTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OSMTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BCB4868174DC2B50054F396 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2BCB486A174DC2B50054F396 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -157,6 +160,8 @@
 				2B6F713317599DE50043A8A6 /* OSMWaterTileSource.m */,
 				2B6F713517599DFE0043A8A6 /* OSMBuildingTileSource.h */,
 				2B6F713617599DFE0043A8A6 /* OSMBuildingTileSource.m */,
+				2BB16F1C17C3221E00932883 /* OSMPointOfInterestTileSource.h */,
+				2BB16F1D17C3221E00932883 /* OSMPointOfInterestTileSource.m */,
 			);
 			name = "OSM Vectors";
 			sourceTree = "<group>";
@@ -368,6 +373,7 @@
 				2B6F713417599DE50043A8A6 /* OSMWaterTileSource.m in Sources */,
 				2B6F713717599DFE0043A8A6 /* OSMBuildingTileSource.m in Sources */,
 				2B6F71A317618A3B0043A8A6 /* OSMRoadLabelTileSource.m in Sources */,
+				2BB16F1E17C3221E00932883 /* OSMPointOfInterestTileSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

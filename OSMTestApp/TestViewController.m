@@ -27,6 +27,7 @@
 #import "OSMLandTileSource.h"
 #import "OSMWaterTileSource.h"
 #import "OSMBuildingTileSource.h"
+#import "OSMPointOfInterestTileSource.h"
 
 // Local interface for TestViewController
 // We'll hide a few things here
@@ -185,6 +186,12 @@
     {
         OSMWaterTileSource *waterSource = [[OSMWaterTileSource alloc] initWithFeatureName:@"water-areas"];
         [osmTileSource addCategory:waterSource];
+    }
+    NSDictionary *poiSettings = _settings[kOSMPOILayer];
+    if (poiSettings)
+    {
+        OSMPointOfInterestTileSource *poiSource = [[OSMPointOfInterestTileSource alloc] initWithFeatureName:@"pois"];
+        [osmTileSource addCategory:poiSource];
     }
     
     // Add a layer to fetch combined OSM vector data

@@ -221,7 +221,10 @@
                                              kOSMLayerMax: @(17)},
                                        kOSMBuildingLayer:
                                            @{kOSMLayerMin: @(15),
-                                             kOSMLayerMax: @(18)}
+                                             kOSMLayerMax: @(18)},
+                                       kOSMPOILayer:
+                                           @{kOSMLayerMin: @(0),
+                                             kOSMLayerMax: @(21)}
                                        };
                     break;
                 case 4:
@@ -241,7 +244,10 @@
                                              kOSMLayerMax: @(14)},
                                        kOSMWaterLayer:
                                            @{kOSMLayerMin: @(14),
-                                             kOSMLayerMax: @(14)}
+                                             kOSMLayerMax: @(14)},
+                                       kOSMPOILayer:
+                                           @{kOSMLayerMin: @(0),
+                                             kOSMLayerMax: @(21)}
                                        };
                     break;
             }
