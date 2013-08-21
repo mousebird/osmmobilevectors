@@ -79,6 +79,7 @@
         mapViewC.delegate = self;
         baseViewC = mapViewC;
     }
+    baseViewC.frameInterval = 2;  // 30fps
     [self.view addSubview:baseViewC.view];
     baseViewC.view.frame = self.view.bounds;
     [self addChildViewController:baseViewC];
