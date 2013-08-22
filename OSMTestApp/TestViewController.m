@@ -64,10 +64,32 @@
     }    
 }
 
+// Note: Debugging tesselation
+- (void)tesselationTest
+{
+    MaplyCoordinate outside[4];
+    outside[0].x = 0.0;  outside[1].y = 0.0;
+    outside[1].x = 1.0;  outside[1].y = 0.0;
+    outside[2].x = 1.0;  outside[2].y = 1.0;
+    outside[3].x = 0.0;  outside[3].y = 1.0;
+    MaplyCoordinate loop0[3];
+    loop0[0].x = 0.25;  loop0[0].y = 0.5;
+    loop0[1].x = 0.5;   loop0[1].y = 0.5;
+    loop0[2].x = 0.5;   loop0[2].y = 0.75;
+    MaplyVectorObject *testObj = [[MaplyVectorObject alloc] initWithAreal:outside numCoords:4 attributes:nil];
+    [testObj addHole:loop0 numCoords:3];
+    
+    MaplyVectorObject *tris = [testObj tesselate];
+    NSString *triStr = [tris log];
+    NSLog(@"%@",triStr);
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
+//    [self tesselationTest];
+
     // Create an empty globe or map controller
     if (startupMapType == MapGlobe)
     {
@@ -180,12 +202,14 @@
     if (landSettings)
     {
         OSMLandTileSource *landSource = [[OSMLandTileSource alloc] initWithFeatureName:@"land-usages"];
+        landSource.fade = 0.0;
         [osmTileSource addCategory:landSource];
     }
     NSDictionary *waterSettings = _settings[kOSMWaterLayer];
     if (waterSettings)
     {
         OSMWaterTileSource *waterSource = [[OSMWaterTileSource alloc] initWithFeatureName:@"water-areas"];
+        waterSource.fade = 0.0;
         [osmTileSource addCategory:waterSource];
     }
     NSDictionary *poiSettings = _settings[kOSMPOILayer];

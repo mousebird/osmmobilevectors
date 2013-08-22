@@ -28,6 +28,14 @@
     if (compObj)
         [compObjs addObject:compObj];
     
+    // And an outline
+//    compObj = [viewC addVectors:@[vecs] desc:
+//               @{kMaplyColor: [UIColor blueColor],
+//                   kMaplyEnable: @(NO)
+//               }];
+//    if (compObj)
+//        [compObjs addObject:compObj];
+    
     return compObjs;
 }
 

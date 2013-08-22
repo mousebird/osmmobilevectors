@@ -14,7 +14,7 @@
 {
     if (!vecs)
         return nil;
-    UIFont *textFont = [UIFont systemFontOfSize:16.0];
+    UIFont *textFont = [UIFont systemFontOfSize:14.0];
     
     NSMutableArray *labels = [NSMutableArray array];
     for (MaplyVectorObject *pt in [vecs splitVectors])
@@ -39,10 +39,10 @@
     if ([labels count] > 0)
         compObj = [viewC addScreenLabels:labels
                           desc:
-            @{kMaplyTextColor: [UIColor redColor],
+            @{kMaplyTextColor: [UIColor colorWithRed:1.0 green:0.5 blue:0.5 alpha:1.0],
                   kMaplyEnable: @(NO),
                    kMaplyTextOutlineSize: @(1.0),
-                  kMaplyTextOutlineColor: [UIColor grayColor],
+                  kMaplyTextOutlineColor: [UIColor blackColor],
                     kMaplyFont: textFont}];
     
     if (compObj)
