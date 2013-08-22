@@ -39,7 +39,7 @@
     if ([labels count] > 0)
         compObj = [viewC addScreenLabels:labels
                           desc:
-            @{kMaplyTextColor: [UIColor colorWithRed:1.0 green:0.5 blue:0.5 alpha:1.0],
+            @{kMaplyTextColor: [UIColor colorWithRed:1.0 green:0.75 blue:0.75 alpha:1.0],
                   kMaplyEnable: @(NO),
                    kMaplyTextOutlineSize: @(1.0),
                   kMaplyTextOutlineColor: [UIColor blackColor],

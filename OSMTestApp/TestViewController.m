@@ -184,18 +184,21 @@
     if (roadSettings)
     {
         OSMRoadTileSource *roadSource = [[OSMRoadTileSource alloc] initWithFeatureName:@"highroad"];
+        roadSource.fade = 0.0;
         [osmTileSource addCategory:roadSource];
     }
     NSDictionary *roadLabelSettings = _settings[kOSMRoadLabelLayer];
     if (roadLabelSettings)
     {
         OSMRoadLabelTileSource *roadLabelSource = [[OSMRoadLabelTileSource alloc] initWithFeatureName:@"skeletron"];
+        roadLabelSource.fade = 0.0;
         [osmTileSource addCategory:roadLabelSource];
     }
     NSDictionary *buildingSettings = _settings[kOSMBuildingLayer];
     if (buildingSettings)
     {
         OSMBuildingTileSource *buildingSource = [[OSMBuildingTileSource alloc] initWithFeatureName:@"buildings"];
+        buildingSource.fade = 0.0;
         [osmTileSource addCategory:buildingSource];
     }
     NSDictionary *landSettings = _settings[kOSMLandLayer];
