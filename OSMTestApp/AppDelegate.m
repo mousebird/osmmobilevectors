@@ -21,7 +21,8 @@
     
     StartupViewController *startViewC = [[StartupViewController alloc] init];
     navC = [[UINavigationController alloc] initWithRootViewController:startViewC];
-    navC.navigationBar.barStyle = UIBarStyleBlackOpaque;
+    navC.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
     self.window.rootViewController = navC;
     
     [self.window makeKeyAndVisible];
