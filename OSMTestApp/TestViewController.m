@@ -151,7 +151,8 @@
                                             success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
             {
                 // Add a quad earth paging layer based on the tile spec we just fetched
-                MaplyQuadEarthWithRemoteTiles *layer = [[MaplyQuadEarthWithRemoteTiles alloc] initWithTilespec:JSON];
+                MaplyRemoteTileSource *tileSource = [[MaplyRemoteTileSource alloc] initWithTilespec:JSON];
+                MaplyQuadImageTilesLayer *layer = [[MaplyQuadImageTilesLayer alloc] initWithCoordSystem:tileSource.coordSys tileSource:tileSource];
                 layer.handleEdges = false;
                 layer.cacheDir = thisCacheDir;
                 [baseViewC addLayer:layer];
@@ -165,7 +166,8 @@
             [operation start];
         } else {
             // Let's load a specific base layer instead
-            MaplyQuadEarthWithRemoteTiles *layer = [[MaplyQuadEarthWithRemoteTiles alloc] initWithBaseURL:@"http://a.tiles.mapbox.com/v3/mousebird.map-2ebn78d1/" ext:@"png" minZoom:0 maxZoom:14];
+            MaplyRemoteTileSource *tileSource = [[MaplyRemoteTileSource alloc] initWithBaseURL:@"http://a.tiles.mapbox.com/v3/mousebird.map-2ebn78d1/" ext:@"png" minZoom:0 maxZoom:14];
+            MaplyQuadImageTilesLayer *layer = [[MaplyQuadImageTilesLayer alloc] initWithCoordSystem:tileSource.coordSys tileSource:tileSource];
             layer.numSimultaneousFetches = 8;
             layer.handleEdges = true;
             [baseViewC addLayer:layer];
