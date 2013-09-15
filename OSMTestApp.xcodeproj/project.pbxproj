@@ -14,6 +14,7 @@
 		2B6F71A317618A3B0043A8A6 /* OSMRoadLabelTileSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6F71A217618A3B0043A8A6 /* OSMRoadLabelTileSource.m */; };
 		2B75B9F91763808700C7C7BE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B75B9F81763808700C7C7BE /* CoreLocation.framework */; };
 		2B75BA021763860600C7C7BE /* libWhirlyGlobe-MaplyComponent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B75BA011763821A00C7C7BE /* libWhirlyGlobe-MaplyComponent.a */; };
+		2B7E12BA17E5594800CCAE8E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B7E12B917E5594800CCAE8E /* libz.dylib */; };
 		2B987B0317AC770D00964797 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B987B0217AC770D00964797 /* libxml2.dylib */; };
 		2BA2A25F17628A3A009C9824 /* osmVec-Logo-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BA2A25E17628A3A009C9824 /* osmVec-Logo-iPad@2x.png */; };
 		2BA2A26217628A59009C9824 /* osmVec-Logo-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BA2A26117628A59009C9824 /* osmVec-Logo-iPad.png */; };
@@ -71,6 +72,7 @@
 		2B6F71A217618A3B0043A8A6 /* OSMRoadLabelTileSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMRoadLabelTileSource.m; sourceTree = "<group>"; };
 		2B75B9F81763808700C7C7BE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2B75B9FB1763821A00C7C7BE /* WhirlyGlobe-MaplyComponent.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "WhirlyGlobe-MaplyComponent.xcodeproj"; path = "libs/WhirlyGlobe-Maply/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/WhirlyGlobe-MaplyComponent.xcodeproj"; sourceTree = "<group>"; };
+		2B7E12B917E5594800CCAE8E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		2B987B0217AC770D00964797 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		2BA2A25E17628A3A009C9824 /* osmVec-Logo-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "osmVec-Logo-iPad@2x.png"; sourceTree = "<group>"; };
 		2BA2A26117628A59009C9824 /* osmVec-Logo-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "osmVec-Logo-iPad.png"; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B7E12BA17E5594800CCAE8E /* libz.dylib in Frameworks */,
 				2B987B0317AC770D00964797 /* libxml2.dylib in Frameworks */,
 				2B75BA021763860600C7C7BE /* libWhirlyGlobe-MaplyComponent.a in Frameworks */,
 				2B75B9F91763808700C7C7BE /* CoreLocation.framework in Frameworks */,
@@ -207,6 +210,7 @@
 		2BCB4867174DC2B50054F396 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2B7E12B917E5594800CCAE8E /* libz.dylib */,
 				2BCB4868174DC2B50054F396 /* UIKit.framework */,
 				2BCB486A174DC2B50054F396 /* Foundation.framework */,
 				2BCB486C174DC2B50054F396 /* CoreGraphics.framework */,
