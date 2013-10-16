@@ -76,7 +76,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Demo and Testing
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -85,89 +85,83 @@
     switch (section)
     {
         case 0:
-            numLayers = 5;
+            numLayers = 3;
             break;
-        case 1:
-            numLayers = 8;
-            break;
+//        case 1:
+//            numLayers = 8;
+//            break;
     }
     return numLayers;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//    NSString *title = nil;
+//    
+//    switch (section)
+//    {
+//        case 0:
+//            title = @"Demo";
+//            break;
+//        case 1:
+//            title = @"Testing";
+//            break;
+//    }
+//    
+//    return title;
+//}
+
+- (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *title = nil;
     
-    switch (section)
-    {
-        case 0:
-            title = @"Demo";
-            break;
-        case 1:
-            title = @"Testing";
-            break;
-    }
-    
-    return title;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+        return 84.0;
+    else
+        return 230.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    {
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:16.0];
+        cell.detailTextLabel.font = [UIFont systemFontOfSize:12.0];
+    } else {
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:32.0];
+        cell.detailTextLabel.font = [UIFont systemFontOfSize:24.0];
+    }
+    cell.detailTextLabel.numberOfLines = 0;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     switch (indexPath.section)
     {
         case 0:
             switch (indexPath.row)
             {
                 case 0:
-                    cell.textLabel.text = @"Roads - Single Resolution";
+                    cell.imageView.image = [UIImage imageNamed:@"SampleVec+BaseMap.png"];
+                    cell.textLabel.text = @"Base Map + Roads + Buildings";
+                    cell.detailTextLabel.text = @"An image tile BaseMap from MapBox with vector roads and buildings from OSM.";
                     break;
                 case 1:
-                    cell.textLabel.text = @"Roads - Multiple Resolution";
+                    cell.imageView.image = [UIImage imageNamed:@"SampleVec+Labels+BaseMap.png"];
+                    cell.textLabel.text = @"Base Map, Roads, Buildings, Labels";
+                    cell.detailTextLabel.text = @"An image tile BaseMap from MapBox with vector roads, road labels, buildings and place names from OSM.";
                     break;
                 case 2:
-                    cell.textLabel.text = @"Base Map + Multiple Layers";
-                    break;
-                case 3:
-                    cell.textLabel.text = @"Base Map + Multiple Layers + Labels";
-                    break;
-                case 4:
+                    cell.imageView.image = [UIImage imageNamed:@"SampleVecOnly.png"];
                     cell.textLabel.text = @"Pure Vector Map";
+                    cell.detailTextLabel.text = @"All OSM vectors, including water, land use, roads, labels and place names.";
                     break;
                 default:
                     break;
             }
             break;
-        case 1:
-            switch (indexPath.row)
-            {
-                case 0:
-                    cell.textLabel.text = @"Paging Test";
-                    break;
-                case 1:
-                    cell.textLabel.text = @"Water Test";
-                    break;
-                case 2:
-                    cell.textLabel.text = @"Base Map Only";
-                    break;
-                case 3:
-                    cell.textLabel.text = @"Roads Only";
-                    break;
-                case 4:
-                    cell.textLabel.text = @"Road Labels Only";
-                    break;
-                case 5:
-                    cell.textLabel.text = @"Water Only";
-                    break;
-                case 6:
-                    cell.textLabel.text = @"Land Use Only";
-                    break;
-                case 7:
-                    cell.textLabel.text = @"Buildings Only";
-                    break;
-            }
+        default:
             break;
     }
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    cell.imageView.frame = CGRectMake(cell.imageView.frame.origin.x, cell.imageView.frame.origin.y, 128, 128);
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.backgroundColor = [UIColor grayColor];
     
@@ -185,21 +179,21 @@
         case 0:
             switch (indexPath.row)
             {
+//                case 0:
+//                    viewC.title = @"OSM Roads - Single Res";
+//                    viewC.settings = @{kOSMRoadLayer:
+//                                           @{kOSMLayerMin: @(15),
+//                                             kOSMLayerMax: @(15)}
+//                                       };
+//                    break;
+//                case 1:
+//                    viewC.title = @"OSM Roads - Multi Res";
+//                    viewC.settings = @{kOSMRoadLayer:
+//                                           @{kOSMLayerMin: @(0),
+//                                             kOSMLayerMax: @(17)}
+//                                       };
+//                    break;
                 case 0:
-                    viewC.title = @"OSM Roads - Single Res";
-                    viewC.settings = @{kOSMRoadLayer:
-                                           @{kOSMLayerMin: @(15),
-                                             kOSMLayerMax: @(15)}
-                                       };
-                    break;
-                case 1:
-                    viewC.title = @"OSM Roads - Multi Res";
-                    viewC.settings = @{kOSMRoadLayer:
-                                           @{kOSMLayerMin: @(0),
-                                             kOSMLayerMax: @(17)}
-                                       };
-                    break;
-                case 2:
                     viewC.title = @"Base Map + Roads + Buildings";
                     viewC.settings = @{kOSMBaseLayer: @(YES),
                                        kOSMRoadLayer:
@@ -210,7 +204,7 @@
                                              kOSMLayerMax: @(18)}
                                        };
                     break;
-                case 3:
+                case 1:
                     viewC.title = @"Base Map + OSM Layers + Labels";
                     viewC.settings = @{kOSMBaseLayer: @(YES),
                                        kOSMRoadLayer:
@@ -227,7 +221,7 @@
                                              kOSMLayerMax: @(21)}
                                        };
                     break;
-                case 4:
+                case 2:
                     viewC.title = @"Full OSM Vectors";
                     viewC.settings = @{kOSMBaseLayer: @(NO),
                                        kOSMRoadLayer:
@@ -252,64 +246,66 @@
                     break;
             }
             break;
-        case 1:
-            switch (indexPath.row)
-            {
-                case 0:
-                    viewC.title = @"Paging Test";
-                    viewC.settings = @{kOSMRoadLayer:
-                                           @{kOSMLayerMin: @(15),
-                                             kOSMLayerMax: @(16)}
-                                       };
-                    break;
-                case 1:
-                    viewC.title = @"Water Test";
-                    viewC.settings = @{kOSMWaterLayer:
-                                           @{kOSMLayerMin: @(14),
-                                             kOSMLayerMax: @(14)}
-                                       };
-                    break;
-                case 2:
-                    viewC.title = @"Base Map Only";
-                    viewC.settings = @{kOSMBaseLayer: @(YES)
-                                       };
-                    break;
-                case 3:
-                    viewC.title = @"Roads Only";
-                    viewC.settings = @{kOSMRoadLayer:
-                                           @{kOSMLayerMin: @(0),
-                                             kOSMLayerMax: @(17)}
-                                       };
-                    break;
-                case 4:
-                    viewC.title = @"Road Labels Only";
-                    viewC.settings = @{kOSMRoadLabelLayer:
-                                           @{kOSMLayerMin: @(0),
-                                             kOSMLayerMax: @(17)}
-                                       };
-                    break;
-                case 5:
-                    viewC.title = @"Water Only";
-                    viewC.settings = @{kOSMWaterLayer:
-                                           @{kOSMLayerMin: @(14),
-                                             kOSMLayerMax: @(14)}
-                                       };
-                    break;
-                case 6:
-                    viewC.title = @"Land Use Only";
-                    viewC.settings = @{kOSMLandLayer:
-                                           @{kOSMLayerMin: @(14),
-                                             kOSMLayerMax: @(14)}
-                                       };
-                    break;
-                case 7:
-                    viewC.title = @"Buildings Only";
-                    viewC.settings = @{kOSMBuildingLayer:
-                                           @{kOSMLayerMin: @(15),
-                                             kOSMLayerMax: @(18)}
-                                       };
-                    break;
-            }
+//        case 1:
+//            switch (indexPath.row)
+//            {
+//                case 0:
+//                    viewC.title = @"Paging Test";
+//                    viewC.settings = @{kOSMRoadLayer:
+//                                           @{kOSMLayerMin: @(15),
+//                                             kOSMLayerMax: @(16)}
+//                                       };
+//                    break;
+//                case 1:
+//                    viewC.title = @"Water Test";
+//                    viewC.settings = @{kOSMWaterLayer:
+//                                           @{kOSMLayerMin: @(14),
+//                                             kOSMLayerMax: @(14)}
+//                                       };
+//                    break;
+//                case 2:
+//                    viewC.title = @"Base Map Only";
+//                    viewC.settings = @{kOSMBaseLayer: @(YES)
+//                                       };
+//                    break;
+//                case 3:
+//                    viewC.title = @"Roads Only";
+//                    viewC.settings = @{kOSMRoadLayer:
+//                                           @{kOSMLayerMin: @(0),
+//                                             kOSMLayerMax: @(17)}
+//                                       };
+//                    break;
+//                case 4:
+//                    viewC.title = @"Road Labels Only";
+//                    viewC.settings = @{kOSMRoadLabelLayer:
+//                                           @{kOSMLayerMin: @(0),
+//                                             kOSMLayerMax: @(17)}
+//                                       };
+//                    break;
+//                case 5:
+//                    viewC.title = @"Water Only";
+//                    viewC.settings = @{kOSMWaterLayer:
+//                                           @{kOSMLayerMin: @(14),
+//                                             kOSMLayerMax: @(14)}
+//                                       };
+//                    break;
+//                case 6:
+//                    viewC.title = @"Land Use Only";
+//                    viewC.settings = @{kOSMLandLayer:
+//                                           @{kOSMLayerMin: @(14),
+//                                             kOSMLayerMax: @(14)}
+//                                       };
+//                    break;
+//                case 7:
+//                    viewC.title = @"Buildings Only";
+//                    viewC.settings = @{kOSMBuildingLayer:
+//                                           @{kOSMLayerMin: @(15),
+//                                             kOSMLayerMax: @(18)}
+//                                       };
+//                    break;
+//            }
+//            break;
+        default:
             break;
     }
     

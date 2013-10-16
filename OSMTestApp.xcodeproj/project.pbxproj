@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B3D4A68180DC37D005A19E1 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B3D4A67180DC37D005A19E1 /* libc++.dylib */; };
 		2B6F712D17599D0C0043A8A6 /* OSMRoadTileSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6F712C17599D0C0043A8A6 /* OSMRoadTileSource.m */; };
 		2B6F713117599DAF0043A8A6 /* OSMLandTileSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6F713017599DAF0043A8A6 /* OSMLandTileSource.m */; };
 		2B6F713417599DE50043A8A6 /* OSMWaterTileSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6F713317599DE50043A8A6 /* OSMWaterTileSource.m */; };
@@ -43,10 +44,12 @@
 		2BCB48B1174DC9E80054F396 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB48A6174DC9E80054F396 /* AFURLConnectionOperation.m */; };
 		2BCB48B2174DC9E80054F396 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB48A8174DC9E80054F396 /* AFXMLRequestOperation.m */; };
 		2BCB48B3174DC9E80054F396 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB48AA174DC9E80054F396 /* UIImageView+AFNetworking.m */; };
-		2BCB48B5174DCAA30054F396 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BCB48B4174DCAA30054F396 /* libstdc++.dylib */; };
 		2BCB48B7174DCAB90054F396 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BCB48B6174DCAB90054F396 /* OpenGLES.framework */; };
 		2BCB48B9174DCAC60054F396 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BCB48B8174DCAC60054F396 /* QuartzCore.framework */; };
 		2BCB48BC174EAD4D0054F396 /* OSMVectorTileSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB48BB174EAD4D0054F396 /* OSMVectorTileSource.m */; };
+		2BEBAB6E180EF90600A9419C /* SampleVec+BaseMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BEBAB6B180EF90600A9419C /* SampleVec+BaseMap.png */; };
+		2BEBAB6F180EF90600A9419C /* SampleVec+Labels+BaseMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BEBAB6C180EF90600A9419C /* SampleVec+Labels+BaseMap.png */; };
+		2BEBAB70180EF90600A9419C /* SampleVecOnly.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BEBAB6D180EF90600A9419C /* SampleVecOnly.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B3D4A67180DC37D005A19E1 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		2B6F712B17599D0C0043A8A6 /* OSMRoadTileSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMRoadTileSource.h; sourceTree = "<group>"; };
 		2B6F712C17599D0C0043A8A6 /* OSMRoadTileSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMRoadTileSource.m; sourceTree = "<group>"; };
 		2B6F712F17599DAF0043A8A6 /* OSMLandTileSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMLandTileSource.h; sourceTree = "<group>"; };
@@ -123,6 +127,9 @@
 		2BCB48B8174DCAC60054F396 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2BCB48BA174EAD4D0054F396 /* OSMVectorTileSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMVectorTileSource.h; sourceTree = "<group>"; };
 		2BCB48BB174EAD4D0054F396 /* OSMVectorTileSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMVectorTileSource.m; sourceTree = "<group>"; };
+		2BEBAB6B180EF90600A9419C /* SampleVec+BaseMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SampleVec+BaseMap.png"; path = "resources/SampleVec+BaseMap.png"; sourceTree = SOURCE_ROOT; };
+		2BEBAB6C180EF90600A9419C /* SampleVec+Labels+BaseMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SampleVec+Labels+BaseMap.png"; path = "resources/SampleVec+Labels+BaseMap.png"; sourceTree = SOURCE_ROOT; };
+		2BEBAB6D180EF90600A9419C /* SampleVecOnly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SampleVecOnly.png; path = resources/SampleVecOnly.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,13 +137,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B3D4A68180DC37D005A19E1 /* libc++.dylib in Frameworks */,
 				2B7E12BA17E5594800CCAE8E /* libz.dylib in Frameworks */,
 				2B987B0317AC770D00964797 /* libxml2.dylib in Frameworks */,
 				2B75BA021763860600C7C7BE /* libWhirlyGlobe-MaplyComponent.a in Frameworks */,
 				2B75B9F91763808700C7C7BE /* CoreLocation.framework in Frameworks */,
 				2BCB48B9174DCAC60054F396 /* QuartzCore.framework in Frameworks */,
 				2BCB48B7174DCAB90054F396 /* OpenGLES.framework in Frameworks */,
-				2BCB48B5174DCAA30054F396 /* libstdc++.dylib in Frameworks */,
 				2BCB486D174DC2B50054F396 /* CoreGraphics.framework in Frameworks */,
 				2BCB4896174DC9020054F396 /* CoreText.framework in Frameworks */,
 				2BCB4894174DC8FC0054F396 /* libsqlite3.dylib in Frameworks */,
@@ -210,6 +217,7 @@
 		2BCB4867174DC2B50054F396 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2B3D4A67180DC37D005A19E1 /* libc++.dylib */,
 				2B7E12B917E5594800CCAE8E /* libz.dylib */,
 				2BCB4868174DC2B50054F396 /* UIKit.framework */,
 				2BCB486A174DC2B50054F396 /* Foundation.framework */,
@@ -227,6 +235,7 @@
 				2BCB4885174DC4B40054F396 /* StartupViewController.m */,
 				2BCB4889174DC59D0054F396 /* TestViewController.h */,
 				2BCB4888174DC59D0054F396 /* TestViewController.m */,
+				2BEBAB69180EF8F500A9419C /* resources */,
 				2B6F712E17599D160043A8A6 /* OSM Vectors */,
 				2BCB486F174DC2B50054F396 /* Supporting Files */,
 			);
@@ -271,6 +280,16 @@
 				2BCB48AA174DC9E80054F396 /* UIImageView+AFNetworking.m */,
 			);
 			name = AFNetworking;
+			sourceTree = "<group>";
+		};
+		2BEBAB69180EF8F500A9419C /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				2BEBAB6B180EF90600A9419C /* SampleVec+BaseMap.png */,
+				2BEBAB6C180EF90600A9419C /* SampleVec+Labels+BaseMap.png */,
+				2BEBAB6D180EF90600A9419C /* SampleVecOnly.png */,
+			);
+			name = resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,7 +366,10 @@
 				2BA2A25F17628A3A009C9824 /* osmVec-Logo-iPad@2x.png in Resources */,
 				2BA2A26217628A59009C9824 /* osmVec-Logo-iPad.png in Resources */,
 				2BA2A26417628A6E009C9824 /* osmVec-Logo-iPhone@2x.png in Resources */,
+				2BEBAB6E180EF90600A9419C /* SampleVec+BaseMap.png in Resources */,
+				2BEBAB70180EF90600A9419C /* SampleVecOnly.png in Resources */,
 				2BA2A26617628A96009C9824 /* osmVec-Logo-iPhone.png in Resources */,
+				2BEBAB6F180EF90600A9419C /* SampleVec+Labels+BaseMap.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +478,7 @@
 		2BCB4883174DC2B50054F396 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OSMTestApp/OSMTestApp-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/libs/WhirlyGlobe-Maply/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/\"";
@@ -469,6 +492,7 @@
 		2BCB4884174DC2B50054F396 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OSMTestApp/OSMTestApp-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/libs/WhirlyGlobe-Maply/WhirlyGlobeSrc/WhirlyGlobe-MaplyComponent/include/\"";

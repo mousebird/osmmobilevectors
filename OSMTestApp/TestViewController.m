@@ -95,10 +95,12 @@
     {
         globeViewC = [[WhirlyGlobeViewController alloc] init];
         globeViewC.delegate = self;
+        globeViewC.autoMoveToTap = false;
         baseViewC = globeViewC;
     } else {
         mapViewC = [[MaplyViewController alloc] init];
         mapViewC.delegate = self;
+        mapViewC.autoMoveToTap = false;
         baseViewC = mapViewC;
     }
     baseViewC.frameInterval = 2;  // 30fps
@@ -154,7 +156,7 @@
                 MaplyRemoteTileSource *tileSource = [[MaplyRemoteTileSource alloc] initWithTilespec:JSON];
                 MaplyQuadImageTilesLayer *layer = [[MaplyQuadImageTilesLayer alloc] initWithCoordSystem:tileSource.coordSys tileSource:tileSource];
                 layer.handleEdges = false;
-                layer.cacheDir = thisCacheDir;
+                tileSource.cacheDir = thisCacheDir;
                 [baseViewC addLayer:layer];
             }
                                                             failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON)
