@@ -229,6 +229,7 @@
     // Add a layer to fetch combined OSM vector data
     MaplyCoordinateSystem *coordSys = [[MaplySphericalMercator alloc] initWebStandard];
     MaplyQuadPagingLayer *osmLayer = [[MaplyQuadPagingLayer alloc] initWithCoordSystem:coordSys delegate:osmTileSource];
+    osmLayer.singleLevelLoading = true;
     osmLayer.numSimultaneousFetches = 4;
     [baseViewC addLayer:osmLayer];
 }

@@ -92,7 +92,7 @@
         {
             NSArray *compObjs = [category addFeatures:topLevelVecs[featureName] toView:layer.viewC forTile:tileID inLayer:layer];
             if (compObjs)
-                [layer addData:compObjs forTile:tileID];
+                [layer addData:compObjs forTile:tileID style:MaplyDataStyleReplace];
         }
     }
     [layer tileDidLoad:tileID];
